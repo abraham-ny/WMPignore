@@ -18,14 +18,7 @@ namespace WMPignoreList
         private readonly IgnoreListService ignoreListService;
 
         public IgnoreGUI()
-        {
-            ignoreListService = new IgnoreListService();
-            //this.Padding = 10;
-            lstIgnoreList = new ListBox { Dock = DockStyle.Top, Height = 200 };
-            btnAdd = new Button { Text = "Add", Dock = DockStyle.Bottom, Width = 100 };
-            btnRemove = new Button { Text = "Remove", Dock = DockStyle.Bottom, Width = 100 };
-            btnClose = new Button { Text = "Close", Dock = DockStyle.Bottom, Width = 100 };
-
+        { 
             MenuStrip mnu = new MenuStrip();
             ToolStripMenuItem file = new ToolStripMenuItem("File");
             ToolStripMenuItem help = new ToolStripMenuItem("Help");
@@ -35,8 +28,22 @@ namespace WMPignoreList
             help.DropDownItems.Add("View Source", null, github);
             mnu.Items.Add(file);
             mnu.Items.Add(help);
+            mnu.Dock = DockStyle.Top;
             this.MainMenuStrip = mnu;
-            this.Controls.Add(mnu);
+            Controls.Add(mnu);
+            this.MaximizeBox = false;
+            this.ShowInTaskbar = false;
+            this.Icon = new Icon("wmplist.ico");
+            
+            ignoreListService = new IgnoreListService();
+            //this.Padding = 10;
+            lstIgnoreList = new ListBox { Dock = DockStyle.Top, Height = 200 };
+            btnAdd = new Button { Text = "Add", Dock = DockStyle.Bottom, Width = 100 };
+            btnRemove = new Button { Text = "Remove", Dock = DockStyle.Bottom, Width = 100 };
+            btnClose = new Button { Text = "Close", Dock = DockStyle.Bottom, Width = 100 };
+
+           
+            
 
             btnAdd.Click += (s, e) =>
             {
@@ -75,7 +82,7 @@ namespace WMPignoreList
             {
                 Process.Start(new ProcessStartInfo
                 {
-                    FileName = "https://github.com/abraham-ny",
+                    FileName = "https://github.com/abraham-ny/WMPignore",
                     UseShellExecute = true
                 });
             }catch(Exception ex)
@@ -86,7 +93,7 @@ namespace WMPignoreList
 
         private void showAbout(object sender, EventArgs e)
         {
-            MessageBox.Show("Windows Media Player ignore list manager. \n This tool allows you to exclude specific folders from wmp playlist/media library even if they are subfolders of a library folder."
+            MessageBox.Show("Windows Media Player ignore list manager. \nThis tool allows you to exclude specific folders from wmp playlist/media library even if they are subfolders of a library folder.\n(c)2025, Abraham Moruri"
                 , "WMP-ignore v1.0", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -106,7 +113,12 @@ namespace WMPignoreList
                 }
             }
         }
-        
+
+        private void IgnoreGUI_Load(object sender, EventArgs e)
+        {
+
+        }
+
         public void LOpenDirPicker()
         {
             using (var dialog = new FolderBrowserDialog())
