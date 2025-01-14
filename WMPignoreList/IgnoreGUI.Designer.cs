@@ -1,7 +1,7 @@
 ﻿
 namespace WMPignoreList
 {
-    partial class Form1
+    partial class IgnoreGUI
     {
         /// <summary>
         /// Required designer variable.
@@ -31,22 +31,23 @@ namespace WMPignoreList
         {
             this.SuspendLayout();
             // 
-            // Form1
+            // IgnoreGUI
             // 
             this.AccessibleDescription = "WMP ignore list manager application to make windows media player ignore specific " +
     "folders from library such as sample packs";
             this.AccessibleName = "Windows Media Player Ignore List App";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 498);
             this.HelpButton = true;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "IgnoreGUI";
             this.Opacity = 0.8D;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.IgnoreGUI_Load);
             this.ResumeLayout(false);
 
         }

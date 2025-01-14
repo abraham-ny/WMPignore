@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,18 +16,19 @@ namespace WMPignoreList
         [STAThread]
         static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
             NotifyIcon trayIcon = new NotifyIcon
             {
-                Icon = SystemIcons.WinLogo, // Use a default system icon
+                Icon = new Icon("wmplist.ico"),
                 Visible = true,
                 Text = "WMP Ignore List Manager"
             };
             ContextMenuStrip menu = new ContextMenuStrip();
-            menu.Items.Add("Start App", null, (s, e) => OpenManager());
-            menu.Items.Add("Exit", null, (s, e) => Application.Exit());
+            menu.Items.Add("Start App", null, (s, e) => OpenManager()).ToolTipText = "Launches the WMPignore foreground GUI application";
+            menu.Items.Add("Exit", null, (s, e) => Application.Exit()).ToolTipText = "Closes the WMPignore application totally";
             trayIcon.ContextMenuStrip = menu;
             trayIcon.Text = "WMP Ignore List";
 
@@ -43,7 +45,7 @@ namespace WMPignoreList
         private static void OpenManager()
         {
             // Open the GUI to manage the ignore list
-            DialogResult res = new Form1().ShowDialog();
+            DialogResult res = new IgnoreGUI().ShowDialog();
             if (res.Equals(true))
             {
                 Console.WriteLine("Window is running?");
