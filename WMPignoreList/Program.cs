@@ -43,7 +43,7 @@ namespace WMPignoreList
         private static void OpenManager()
         {
             // Open the GUI to manage the ignore list
-            DialogResult res = new Form1().ShowDialog();
+            DialogResult res = new IgnoreGUI().ShowDialog();
             if (res.Equals(true))
             {
                 Console.WriteLine("Window is running?");

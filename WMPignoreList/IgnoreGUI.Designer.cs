@@ -1,7 +1,7 @@
 ﻿
 namespace WMPignoreList
 {
-    partial class Form1
+    partial class IgnoreGUI
     {
         /// <summary>
         /// Required designer variable.
