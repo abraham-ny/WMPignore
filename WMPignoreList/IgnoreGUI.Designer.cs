@@ -38,7 +38,7 @@ namespace WMPignoreList
             this.AccessibleName = "Windows Media Player Ignore List App";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 498);
             this.HelpButton = true;
             this.MaximizeBox = false;
             this.Name = "IgnoreGUI";
